@@ -46,7 +46,16 @@ For your second milestone, explain what you've worked on since your previous mil
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+For my first milestone, I successfully assembled the robotic arm and tested all the electrical components, including servos and joysticks. I also managed to control the arm using a joystick. The robotic arm consists of 4 servos, several bearings, and is controlled by an Arduino Nano board. Although I encountered some challenges during the process, I resolved them by reviewing the source code and experimenting with different configurations.
 
+The Arduino board is crucial to the functionality of the robot. It processes inputs from the joystick and sends commands to the robotic arm based on these inputs. When activated, the Arduino waits for joystick movements. Moving the joystick sends a signal to the Arduino, which then calculates the necessary adjustments to the servos, allowing the arm to move to the desired position.
+
+During the build, I faced a significant issue where the arm began moving erratically and would return to its original position, even though it had previously been functioning correctly. Initially, I suspected a misconfiguration of the servos. However, after checking the code and monitoring the servo angles by printing out servo angle data in the arduino monitor, the data in the Arduino matched the actual angles, indicating that misconfiguration was not the problem. I then observed that the arm functioned correctly when connected to a computer but not when powered by a battery. This led me to believe that the issue was related to insufficient battery voltage. Replacing the battery resolved the problem. In retrospect, I realized that the prolonged connection between the arm and the battery had likely depleted the battery’s charge.
+
+Next, I plan to integrate a Raspberry Pi with the Arduino to handle tasks requiring higher computational power, while the Arduino will continue controlling the mechanical components. I will also implement object recognition software on the Raspberry Pi. Ultimately, I aim to combine control of the robotic arm with object recognition to enable automatic object pickup by the arm.
+
+
+ 
 For your first milestone, describe what your project is and how you plan to build it. You can include:
 - An explanation about the different components of your project and how they will all integrate together
 - Technical progress you've made so far
