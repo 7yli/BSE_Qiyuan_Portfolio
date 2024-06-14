@@ -45,7 +45,7 @@ For your second milestone, explain what you've worked on since your previous mil
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtu.be/hY5DLFtaSV8?si=Qcd-FmMPRGT0vSLS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 For my first milestone, I successfully assembled the robotic arm and tested all the electrical components, including servos and joysticks. I also managed to control the arm using a joystick. The robotic arm consists of 4 servos, several bearings, and is controlled by an Arduino Nano board. Although I encountered some challenges during the process, I resolved them by reviewing the source code and experimenting with different configurations.
 
 The Arduino board is crucial to the functionality of the robot. It processes signals from the joystick and sends commands to the robotic arm based on these inputs. When activated, the Arduino waits for joystick movements. Moving the joystick sends a signal to the Arduino, which then calculates the necessary adjustments to the servos, allowing the arm to move to the desired position.
