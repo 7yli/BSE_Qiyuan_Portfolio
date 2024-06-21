@@ -35,12 +35,14 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
+For the second milestone of the project, I successfully integrated a Raspberry Pi with an Arduino board which controls a robotic arm. This setup also includes configuring a Pi camera and establishing a web-based arm controller. The website features real-time imaging from the camera and incorporates two virtual joysticks that facilitate wireless control of the arm.
 
+To facilitate communication between the Raspberry Pi and the Arduino, I utilized a USB cable, enabling data transfer between the two devices. The control data for the joysticks is encoded into a 16-character string simulating the data range of the real joystick data: left vertical, left horizontal, right vertical, and right horizontal. The website, built using the Python Flask framework due to its compatibility with various code modules, streams video using the Picamera2 library, with modifications based on a GitHub Picamera project. Additionally, I integrated two virtual joysticks into the website using the nibblejs library, a Node.js library that supports joystick functionality on web pages. User interactions with the joysticks update the joystick data in the website's database in real-time. A separate Python thread reads this data, converts it into the required 16-character format, and sends it to the Arduino, which then controls the robotic arm based on this input.
+
+During this phase, I encountered several challenges. Initially, I struggled with understanding how Arduino handles serial data reception. After extensive research and consultation of Arduino's API documentation, I managed to configure the Arduino to receive data of a specific length from the Raspberry Pi. Another issue was ensuring that the joystick data from the web program was effectively shared with the Raspberry Pi's data transmission script. This was resolved by implementing a shared database accessible by both programs, simplifying the data-sharing process. Lastly, I observed that data occasionally got mixed up during transmission, likely because the Arduino couldn't process the incoming data quickly enough. To address this, I introduced a delay of 0.01 seconds between sending data batches, which stabilized the communication.
+
+With the arm now controllable remotely and the camera functional, the next step involves fully integrating the camera into the arm control system. I plan to add an object detection module to the Raspberry Pi and program the arm to move towards objects it recognizes, aiming to automate the process of picking up specified items.
+ 
 # First Milestone
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
