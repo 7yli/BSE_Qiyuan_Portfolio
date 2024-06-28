@@ -1,16 +1,9 @@
 # Automatic object detect and pickingup Robotic Arm 
 My project is the automatic object detect and pickingup robotic arm. In this project, I'm able to make a website for users to decide which object to pickup and to control the arm when necessary. When using my project, users could click on the object in the website and then the arm would turn to the object selected so that it's easier for users to pick it up. 
 
-```HTML 
-<!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site -->
-```
-
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Qiyuan L | Novi High School | Computer Science | Incoming Junior
-
-**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](project.png)
   
