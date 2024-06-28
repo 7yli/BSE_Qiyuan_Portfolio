@@ -1,5 +1,5 @@
 from flask import Flask, render_template, Response, request, jsonify, send_file
-from camera_pi import Camera  # 确保Camera类已经正确导入
+from camera_pi import Camera
 import cv2
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
