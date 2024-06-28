@@ -21,11 +21,14 @@ You should comment out all portions of your portfolio that you have not complete
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
+For the final milestone of my project, I successfully integrated the object detection function into the arm control system. I also programmed a useful feature based on this detection: when users click on any objects boxed on my camera video, the robotic arm moves towards the selected object.
+
+I started by researching and deciding to use object detection from the OpenCV library. The process begins with capturing the camera image from the Pi camera and feeding it into the object detection model. The model draws boxes around each detected object so that users can clearly see them. I used JavaScript to identify the position of the mouse whenever it clicks. The data regarding the mouse's position and the position of the objects is then shared. I created another Python thread to control the robotic arm based on the data shared from the website. This control thread calculates the horizontal and vertical angles needed to rotate the arm to center the selected object in the camera's view, based on the camera's field of view and the coordinates of the ideal point. The calculated commands are sent to the arm, which is accurately controlled by adjusting the servo's rotation duration.
+
+At this stage, my main task is configuring different rotation durations for various angles. I need to test different durations and check how far the object strays from the center each time to determine the most accurate rotation time for the servo.
+
+The most valuable experience for me at Bluestamp was working as a full-stack programmer for the first time. I learned front-end website design and interactive programming, as well as back-end arm control coding. This greatly improved my programming skills and my ability to manage my time across different tasks. I am extremely grateful for this experience and have realized how enjoyable it is to complete such a significant project independently. I plan to continue pursuing programming in all its aspects and hope to complete more projects like this in the future.
+
 
 
 
