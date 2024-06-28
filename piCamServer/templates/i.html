@@ -10,11 +10,11 @@
     <div id="joystick"></div>
 
     <script>
-        // 创建虚拟摇杆
+        
         var options = { zone: document.getElementById('joystick'), mode: 'static', position: { left: '50%', top: '50%' }, color: 'red' };
         var joystick = nipplejs.create(options);
 
-        // 添加事件监听
+        
         joystick.on('move', function (evt, data) {
             console.log("Joystick move", data);
         });
