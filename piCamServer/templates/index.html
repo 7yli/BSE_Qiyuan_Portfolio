@@ -30,25 +30,25 @@
         var rightJoystick = nipplejs.create(options);
         function handleClick(e) {
             var imgEl = document.getElementById("vid");
-            var rect = imgEl.getBoundingClientRect();  // 获取元素在视口中的位置和尺寸
+            var rect = imgEl.getBoundingClientRect();  
 
-            // 获取图像的显示尺寸
+            
             var displayWidth = rect.width;
             var displayHeight = rect.height;
 
-            // 获取图像的实际尺寸
+            
             var actualWidth = imgEl.naturalWidth;
             var actualHeight = imgEl.naturalHeight;
 
-            // 计算宽高的比例
+            
             var widthRatio = actualWidth / displayWidth;
             var heightRatio = actualHeight / displayHeight;
 
-            // 计算实际的图像坐标
+            
             var xPage = e.pageX - rect.left - window.pageXOffset;
             var yPage = e.pageY - rect.top - window.pageYOffset;
 
-            // 应用比例调整坐标
+            
             var xPos = Math.round(xPage * widthRatio);
             var yPos = Math.round(yPage * heightRatio);
 
