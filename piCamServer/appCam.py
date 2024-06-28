@@ -8,7 +8,6 @@ from objectDetect import objectDetect
 
 app = Flask(__name__)
 
-# 安全实践：从环境变量中加载敏感信息
 import os
 HOSTNAME = "localhost"
 PORT = 3306
@@ -70,7 +69,6 @@ def video_feed():
 
 @app.route('/get_objects')
 def get_objects():
-        # 假设 objectDetect.getObjects() 返回的是列表和对象检测数据
     detected_objects = datas
     x = []
     for i in detected_objects:
@@ -79,7 +77,7 @@ def get_objects():
             a.append(int(j))
         x.append(a)
     print(x,type(x))
-    return jsonify(x)  # 使用 jsonify 来正确返回 JSON 数据
+    return jsonify(x) 
 
 
 @app.route('/joystick_data', methods=['POST'])
