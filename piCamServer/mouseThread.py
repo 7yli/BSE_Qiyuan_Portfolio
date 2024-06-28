@@ -20,10 +20,10 @@ def query_mouse_data():
             if result:
                 return result['x'], result['y']
             else:
-                return -1, -1  # 返回默认值
+                return -1, -1
     except Exception as e:
         print(f"Database error: {e}")
-        return -1, -1  # 处理异常，返回默认值
+        return -1, -1  
     finally:
         connection.close()
 
