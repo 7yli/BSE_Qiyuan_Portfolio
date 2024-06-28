@@ -36,7 +36,7 @@ The most valuable experience for me at Bluestamp was working as a full-stack pro
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VXQh1fdUkY0?si=D53kk2Zu2pXkTLyG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 For the second milestone of the project, I successfully integrated a Raspberry Pi with an Arduino board which controls a robotic arm. This setup also includes configuring a Pi camera and establishing a web-based arm controller. The website features real-time imaging from the camera and incorporates two virtual joysticks that facilitate wireless control of the arm.
 
@@ -50,7 +50,7 @@ With the arm now controllable remotely and the camera functional, the next step 
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://youtu.be/hY5DLFtaSV8?si=Qcd-FmMPRGT0vSLS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hY5DLFtaSV8?si=44JIhAG7N4h_ehvb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 For my first milestone, I successfully assembled the robotic arm and tested all the electrical components, including servos and joysticks. I also managed to control the arm using a joystick. The robotic arm consists of 4 servos, several bearings, and is controlled by an Arduino Nano board. Although I encountered some challenges during the process, I resolved them by reviewing the source code and experimenting with different configurations.
 
 The Arduino board is crucial to the functionality of the robot. It processes signals from the joystick and sends commands to the robotic arm based on these inputs. When activated, the Arduino waits for joystick movements. Moving the joystick sends a signal to the Arduino, which then calculates the necessary adjustments to the servos, allowing the arm to move to the desired position.
