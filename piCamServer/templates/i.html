@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NippleJS Test</title>
+    <script src="/static/dist/nipplejs.js"></script>
+</head>
+<body>
+    <div id="joystick"></div>
+
+    <script>
+        // 创建虚拟摇杆
+        var options = { zone: document.getElementById('joystick'), mode: 'static', position: { left: '50%', top: '50%' }, color: 'red' };
+        var joystick = nipplejs.create(options);
+
+        // 添加事件监听
+        joystick.on('move', function (evt, data) {
+            console.log("Joystick move", data);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <title>Robotic Arm Controller</title>
+    <link rel="stylesheet" href='../static/style.css'/>
+    <script src="/static/dist/nipplejs.js"></script>
+    <style>
+        #left-joystick, #right-joystick {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 10%;
+        }
+        #left-joystick { left: 30%; }
+        #right-joystick { right: 30%;}
+        img {  width: 70%; height: auto; }
+    </style>
+  </head>
+  <body>
+    <h1>Homemade Robotic Arm Controller</h1>
+    <h3><img id="vid" src="{{ url_for('video_feed') }}" width="90%" onmousedown="handleClick(event)"  onmouseup="sendMouseData({'x':-1, 'y':-1})"></h3>
+    <div id="right-joystick"></div>
+    <div id="left-joystick"></div>
+
+    <script>
+        var options = {identifier: 0, zone: document.getElementById('left-joystick'), position: { left: '50px', top: '50px' }, mode: "static", color: 'red' };
+        var leftJoystick = nipplejs.create(options);
+        options.zone = document.getElementById('right-joystick');
+        options.color = 'blue';
+        options.identifier = 1
+        var rightJoystick = nipplejs.create(options);
+        function handleClick(e) {
+            var imgEl = document.getElementById("vid");
+            var rect = imgEl.getBoundingClientRect();  // 获取元素在视口中的位置和尺寸
+
+            // 获取图像的显示尺寸
+            var displayWidth = rect.width;
+            var displayHeight = rect.height;
+
+            // 获取图像的实际尺寸
+            var actualWidth = imgEl.naturalWidth;
+            var actualHeight = imgEl.naturalHeight;
+
+            // 计算宽高的比例
+            var widthRatio = actualWidth / displayWidth;
+            var heightRatio = actualHeight / displayHeight;
+
+            // 计算实际的图像坐标
+            var xPage = e.pageX - rect.left - window.pageXOffset;
+            var yPage = e.pageY - rect.top - window.pageYOffset;
+
+            // 应用比例调整坐标
+            var xPos = Math.round(xPage * widthRatio);
+            var yPos = Math.round(yPage * heightRatio);
+
+            var hotspot = {x: xPos, y: yPos};
+            sendMouseData(hotspot);
+        }
+        function locationLeft(element) {
+            var offsetTotal = element.offsetLeft;
+            var scrollTotal = 0; // element.scrollLeft but we dont want to deal with scrolling - already in page coords
+            if (element.tagName != "BODY") {
+                if (element.offsetParent != null)
+                    return offsetTotal + scrollTotal + locationLeft(element.offsetParent);
+            }
+            return offsetTotal + scrollTotal;
+        }
+
+        function locationTop(element) {
+            var offsetTotal = element.offsetTop;
+            var scrollTotal = 0; // element.scrollTop but we dont want to deal with scrolling - already in page coords
+            if (element.tagName != "BODY") {
+                if (element.offsetParent != null)
+                    return offsetTotal + scrollTotal + locationTop(element.offsetParent);
+            }
+            return offsetTotal + scrollTotal;
+        }
+        function sendMouseData(hotspot) {
+            fetch('/mouse_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(hotspot)
+            })
+            .then(response => response.json())
+            .then(data => console.log("Server response:", data))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function sendJoystickData(joystick, data) {
+            fetch('/joystick_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ joystick: joystick, data: data })
+            });
+        }
+
+        leftJoystick.on('move', function (evt, data) {
+            sendJoystickData('left', data);
+        });
+
+        leftJoystick.on('end', function (evt, data) {
+            sendJoystickData('left', {vector:{x:0,y:0}});
+        });
+
+        rightJoystick.on('move', function (evt, data) {
+            sendJoystickData('right', data);
+        });
+
+        rightJoystick.on('end', function (evt, data) {
+            sendJoystickData('right', {vector:{x:0,y:0}});
+        });
+    </script>
+    <p> @2018 Developed by MJRoBot.org</p>
+  </body>
+</html>
