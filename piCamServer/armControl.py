@@ -23,7 +23,6 @@ def connect_db():
                            cursorclass=pymysql.cursors.DictCursor)
 
 def format_value(value):
-    # 将值转换为字符串并确保长度为4
     return str(- int(value * 512) + 512).zfill(4)
 
 def format_valu(value):
@@ -44,10 +43,10 @@ def query_joystick_data(joystick_id):
             if result:
                 return format_value(result['x']), format_value(result['y'])
             else:
-                return "0512", "0512"  # 返回默认值
+                return "0512", "0512"
     except Exception as e:
         print(f"Database error: {e}")
-        return "0512", "0512"  # 处理异常，返回默认值
+        return "0512", "0512" 
     finally:
         connection.close()
 
@@ -65,10 +64,10 @@ def query_mouse_data():
             if result:
                 return result['x'], result['y']
             else:
-                return -1, -1  # 返回默认值
+                return -1, -1 
     except Exception as e:
         print(f"Database error: {e}")
-        return -1, -1  # 处理异常，返回默认值
+        return -1, -1 
     finally:
         connection.close()
 
