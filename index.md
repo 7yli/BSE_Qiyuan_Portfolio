@@ -57,10 +57,12 @@ During the build, I faced a significant issue where the arm began moving erratic
 Next, I plan to integrate a Raspberry Pi with the Arduino to handle tasks requiring higher computational power, while the Arduino will continue controlling the mechanical components. I will also implement object recognition software on the Raspberry Pi. Ultimately, I aim to combine control of the robotic arm with object recognition to enable automatic object pickup by the arm.
 
 # Schematics 
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
+![wiring](wiring.png)
 
 # Code
 [Here's the code for the controlling part of the arm](https://github.com/Cokoino/CKK0006/blob/master/Lesson%207%20-%20Control%20The%20Robot%20Arm/Code/Arm/Arm.ino)
+
+[Here's the code for the website on raspberry pi and the auto moving part](https://github.com/7yli/BSE_Qiyuan_Portfolio/tree/gh-pages/piCamServer)
 
 # Bill of Materials
 Here's all the part I used in the project. 
